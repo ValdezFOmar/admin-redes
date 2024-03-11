@@ -1,0 +1,39 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg bg-dark" data-bs-theme="dark">
+  <div class="container-fluid">
+    <a class="navbar-brand d-flex align-items-center" href="{% url 'home' %}">
+      <img src="{% static "clients/redistik-title.png" %}" alt="Redistik" height="20">
+    </a>
+    <button class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link {% if request.path == '/' %}active{% endif %}"
+             href="{% url 'home' %}">Home</a>
+        </li>
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link {% if request.path == '/add-ticket' %}active{% endif %}"
+               href="{% url 'add-ticket' %}">Add Ticket</a>
+          </li>
+        {% endif %}
+      </ul>
+      <div class="d-flex">
+        {% if user.is_authenticated %}
+          <a href="{% url 'logout-user' %}" class="btn btn-outline-light">Logout</a>
+        {% else %}
+          <a href="{% url 'login-user' %}" class="btn btn-outline-light">Login</a>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</nav>

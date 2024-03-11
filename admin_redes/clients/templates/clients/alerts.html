@@ -1,0 +1,13 @@
+{% if messages %}
+  <ul class="list-unstyled">
+    {% for message in messages %}
+      {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        <li class="alert alert-danger" role="alert">{{ message }}</li>
+      {% elif message.level == DEFAULT_MESSAGE_LEVELS.SUCCESS %}
+        <li class="alert alert-success" role="alert">{{ message }}</li>
+      {% else %}
+        <li class="alert alert-info" role="alert">{{ message }}</li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+{% endif %}

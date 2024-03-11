@@ -1,3 +1,6 @@
+# Exclude migrations while in development
+admin_redes/clients/migrations/0*.py
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

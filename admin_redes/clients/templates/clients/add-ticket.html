@@ -1,0 +1,24 @@
+{% extends "clients/base.html" %}
+
+{% block title %}
+  Add Ticket
+{% endblock title %}
+
+{% block content %}
+  <main>
+    <h1 class="text-center mb-4">Fill a Ticket</h1>
+
+    <section class="container max-width">
+      <div class="d-flex flex-column justify-content-center">
+        {% include "clients/alerts.html" %}
+        <form method="POST">
+          {% csrf_token %}
+          {{ form.as_p }}
+          <div class="d-flex justify-content-center">
+            <input type="submit" value="Submit" class="btn btn-primary px-4" />
+          </div>
+        </form>
+      </div>
+    </section>
+  </main>
+{% endblock content %}

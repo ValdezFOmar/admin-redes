@@ -1,0 +1,19 @@
+{% extends "clients/base.html" %}
+{% load static %}
+
+{% block title %}
+  Home
+{% endblock title %}
+
+{% block content %}
+  <main>
+    {% include "clients/alerts.html" %}
+    <div class="mb-3 d-flex justify-content-center">
+      <div class="logo">
+        <img src="{% static "clients/redistik-logo.png" %}" alt="Resditik logo" class="img-fluid" />
+      </div>
+    </div>
+    <h1 class="text-center mb-3">Redistik Services</h1>
+    <p class="text-center">Domestic networking services.</p>
+  </main>
+{% endblock content %}
